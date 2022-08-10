@@ -1,3 +1,10 @@
 body {
   font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.jsRange {
+  width: 30%;
 }
