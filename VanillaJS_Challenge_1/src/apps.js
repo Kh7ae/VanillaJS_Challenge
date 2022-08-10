@@ -15,8 +15,35 @@ const colors = ["#1abc9c", "#3498db", "#9b59b6", "#f39c12", "#e74c3c"];
 ✅ ALL function handlers should be INSIDE of "superEventHandler"
 */
 
-const superEventHandler = {};
+const superEventHandler = {
+    handleMouseHere: function() {
+        title.innerText = "The mouse is here!";
+        title.style.color = colors[0];
+    },
 
-function init() {}
+    handleMouseGone: function() {
+        title.innerText = "The mouse is gone!";
+        title.style.color = colors[1];
+    },
+    
+    handleWindowResize: function() {
+        title.innerText = "You just resized!";
+        title.style.color = colors[2];
+    },
 
-init();
+    handleMouseRightClick: function() {
+        title.innerText = "That was a right click!";
+        title.style.color = colors[3];
+    }
+};
+
+
+// addEventListner: target.addEventListner("eventType", "eventHandler")
+// target: 등록할 요소, 즉 documment에서 읽어온 input 요소
+// eventType은 eventType, eventHandler는 등록할 eventHandler
+// eventType의 종류는 구글링해서 필요할 때 마다 찾아봐야 할듯 ..
+
+title.addEventListener("mouseenter", superEventHandler.handleMouseHere);
+title.addEventListener("mouseleave", superEventHandler.handleMouseGone);
+window.addEventListener("resize", superEventHandler.handleWindowResize);
+window.addEventListener("contextmenu", superEventHandler.handleMouseRightClick);
